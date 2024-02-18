@@ -1,5 +1,18 @@
 -- Thanks to https://github.com/nvim-lua/kickstart.nvim
 
+local denoInstalled = false
+if vim.fn.executable("deno") == 1 then
+  denoInstalled = true
+end
+local nodeInstalled = false
+if vim.fn.executable("node") == 1 then
+  nodeInstalled = true
+end
+local rustInstalled = false
+if vim.fn.executable("cargo") == 1 then
+  rustInstalled = true
+end
+
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
@@ -590,22 +603,22 @@ mason_lspconfig.setup_handlers {
 
     -- Hacks for Deno and TypeScript
     if server_name == "denols" then
-      if vim.fn.executable("deno") == 0 then
+      if not denoInstalled then
         return
       end
       root_dir = nvim_lsp.util.root_pattern("deno.json", "deno.jsonc")
     elseif server_name == "tsserver" then
-      if vim.fn.executable("node") == 0 then
+      if not nodeInstalled then
         return
       end
       root_dir = nvim_lsp.util.root_pattern("package.json")
       single_file_support = false
     elseif server_name == "html" then
-      if vim.fn.executable("node") == 0 then
+      if not nodeInstalled then
         return
       end
     elseif server_name == "rust_analyzer" then
-      if vim.fn.executable("cargo") == 0 then
+      if not rustInstalled then
         return
       end
     end
