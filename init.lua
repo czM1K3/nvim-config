@@ -590,10 +590,24 @@ mason_lspconfig.setup_handlers {
 
     -- Hacks for Deno and TypeScript
     if server_name == "denols" then
+      if vim.fn.executable("deno") == 0 then
+        return
+      end
       root_dir = nvim_lsp.util.root_pattern("deno.json", "deno.jsonc")
     elseif server_name == "tsserver" then
+      if vim.fn.executable("node") == 0 then
+        return
+      end
       root_dir = nvim_lsp.util.root_pattern("package.json")
       single_file_support = false
+    elseif server_name == "html" then
+      if vim.fn.executable("node") == 0 then
+        return
+      end
+    elseif server_name == "rust_analyzer" then
+      if vim.fn.executable("cargo") == 0 then
+        return
+      end
     end
 
     nvim_lsp[server_name].setup {
