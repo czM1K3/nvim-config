@@ -244,8 +244,11 @@ require('lazy').setup({
     },
     build = ':TSUpdate',
   },
+  
+  { 'sbdchd/neoformat' },
 
-  { 'lambdalisue/suda.vim' }
+  { 'lambdalisue/suda.vim' },
+  { 'alec-gibson/nvim-tetris' }
 
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
