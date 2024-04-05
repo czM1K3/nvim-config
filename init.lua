@@ -244,7 +244,14 @@ require('lazy').setup({
     },
     build = ':TSUpdate',
   },
-  
+  {
+    'folke/trouble.nvim',
+    dependencies = {
+      'nvim-tree/nvim-web-devicons'
+    },
+    opts = {},
+  },
+
   { 'sbdchd/neoformat' },
 
   { 'lambdalisue/suda.vim' },
