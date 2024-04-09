@@ -255,7 +255,8 @@ require('lazy').setup({
   { 'sbdchd/neoformat' },
 
   { 'lambdalisue/suda.vim' },
-  { 'alec-gibson/nvim-tetris' }
+  { 'alec-gibson/nvim-tetris' },
+  { 'letieu/btw.nvim' }
 
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
@@ -611,6 +612,8 @@ end
 
 -- Setup neovim lua configuration
 require('neodev').setup()
+
+require('btw').setup()
 
 -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
 local capabilities = vim.lsp.protocol.make_client_capabilities()
