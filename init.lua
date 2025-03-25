@@ -256,7 +256,21 @@ require('lazy').setup({
 
   { 'lambdalisue/suda.vim' },
   { 'alec-gibson/nvim-tetris' },
-  { 'letieu/btw.nvim' }
+  { 'letieu/btw.nvim' },
+  {
+    'kdheepak/lazygit.nvim',
+    lazy = true,
+    cmd = {
+      "LazyGit",
+      "LazyGitConfig",
+      "LazyGitCurrentFile",
+      "LazyGitFilter",
+      "LazyGitFilterCurrentFile",
+    },
+    keys = {
+      { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" }
+    }
+  }
 
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
